@@ -1,7 +1,7 @@
 A simple Spring MVC shopping cart (session scoped).
 
 ============
-Spring MVC ORM 4.3.2
+Spring 4.3.2
 JPA 2.1
 Hibernate 5.2.2
 MySql 6.3.7
