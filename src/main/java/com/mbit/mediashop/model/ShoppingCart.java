@@ -84,7 +84,7 @@ public class ShoppingCart implements Serializable {
         this.updateTotals();
     }
 
-    public void updateTotals() {
+    private void updateTotals() {
         totalQuantity = 0;
         totalPrice = new BigDecimal("0.00");
         for (CartItem cartItem : cartItems) {
