@@ -24,38 +24,37 @@ public class ShoppingCart implements Serializable {
     private int totalQuantity;
     private BigDecimal totalPrice;
 
-    @PostConstruct
-    public void init() {
+    public ShoppingCart() {
         cartItems = new ArrayList<>();
         totalQuantity = 0;
         totalPrice = new BigDecimal("0.00");
     }
 
-    public List<CartItem> getCartItems() {
+    public synchronized List<CartItem> getCartItems() {
         return cartItems;
     }
 
-    public void setCartItems(List<CartItem> cartItems) {
+    public synchronized void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 
-    public int getTotalQuantity() {
+    public synchronized int getTotalQuantity() {
         return totalQuantity;
     }
 
-    public void setTotalQuantity(int totalQuantity) {
+    public synchronized void setTotalQuantity(int totalQuantity) {
         this.totalQuantity = totalQuantity;
     }
 
-    public BigDecimal getTotalPrice() {
+    public synchronized BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
+    public synchronized void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public void addCartItem(CartItem cartItem) {
+    public synchronized void addCartItem(CartItem cartItem) {
         for (CartItem item : cartItems) {
             if (cartItem.getProduct().getProductId() == item.getProduct().getProductId()) {
                 item.increaseQuantity();
@@ -68,7 +67,7 @@ public class ShoppingCart implements Serializable {
         this.updateTotals();
     }
 
-    public void removeItemByProductId(int id) {
+    public synchronized void removeItemByProductId(int id) {
         Iterator<CartItem> iterator = cartItems.iterator();
         while (iterator.hasNext()) {
             if (iterator.next().getProduct().getProductId() == id) {
@@ -79,12 +78,12 @@ public class ShoppingCart implements Serializable {
         this.updateTotals();
     }
 
-    public void clearItems() {
+    public synchronized void clearItems() {
         this.cartItems.clear();
         this.updateTotals();
     }
 
-    private void updateTotals() {
+    private synchronized void updateTotals() {
         totalQuantity = 0;
         totalPrice = new BigDecimal("0.00");
         for (CartItem cartItem : cartItems) {
