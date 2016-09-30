@@ -35,8 +35,10 @@ public class GenericCartService implements CartService {
     @Override
     public void addProductById(int id) {
         Product product = productService.getProductById(id);
-        CartItem cartItem = new CartItem(product, 1, product.getPrice());
-        shoppingCart.addCartItem(cartItem);
+        if (product != null) {
+            CartItem cartItem = new CartItem(product, 1, product.getPrice());
+            shoppingCart.addCartItem(cartItem);
+        }
     }
 
     @Override
