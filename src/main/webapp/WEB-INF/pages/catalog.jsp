@@ -11,23 +11,23 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
                 <th>Category</th>
                 <th>Genre</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>#</th>
             </tr>
             </thead>
             <tbody>
 
             <c:forEach var="product" items="${products}">
                 <tr>
-                    <td><a href="<c:url value="/cart/addProduct/${product.productId}"/>"><span
-                            class="glyphicon glyphicon-shopping-cart"></span></a></td>
                     <td>${product.category.name}</td>
                     <td>${product.genre}</td>
                     <td>${product.name}</td>
                     <td>$ ${product.price}</td>
+                    <td><a href="<c:url value="/cart/addProduct/${product.productId}"/>"><span
+                            class="glyphicon glyphicon-shopping-cart"></span></a></td>
                 </tr>
             </c:forEach>
             </tbody>
