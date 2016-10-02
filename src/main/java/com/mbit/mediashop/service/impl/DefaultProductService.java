@@ -13,12 +13,12 @@ import java.util.List;
  */
 
 @Service
-public class GenericProductService implements ProductService {
+public class DefaultProductService implements ProductService {
 
     private ProductDao productDao;
 
     @Autowired
-    public GenericProductService(ProductDao productDao) {
+    public DefaultProductService(ProductDao productDao) {
         this.productDao = productDao;
     }
 
