@@ -13,12 +13,12 @@ import java.util.List;
  */
 
 @Service
-public class DefaultProductService implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
     private ProductDao productDao;
 
     @Autowired
-    public DefaultProductService(ProductDao productDao) {
+    public ProductServiceImpl(ProductDao productDao) {
         this.productDao = productDao;
     }
 

@@ -17,13 +17,13 @@ import java.util.List;
  * Created by mbitiutskyi.
  */
 @Service
-public class DefaultCartService implements CartService {
+public class CartServiceImpl implements CartService {
 
     private ShoppingCart shoppingCart;
     private ProductService productService;
 
     @Autowired
-    public DefaultCartService(ShoppingCart shoppingCart, ProductService productService) {
+    public CartServiceImpl(ShoppingCart shoppingCart, ProductService productService) {
         this.shoppingCart = shoppingCart;
         this.productService = productService;
     }
