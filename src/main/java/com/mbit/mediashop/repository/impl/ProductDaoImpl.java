@@ -18,7 +18,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class HibernateProductDao implements ProductDao {
+public class ProductDaoImpl implements ProductDao {
 
     @PersistenceContext
     private EntityManager entityManager;
