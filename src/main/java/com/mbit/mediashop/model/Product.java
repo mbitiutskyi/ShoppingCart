@@ -31,7 +31,7 @@ public class Product implements Serializable{
     @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private BigDecimal price;
 
-    public long getProductId() {
+    public int getProductId() {
         return productId;
     }
 
