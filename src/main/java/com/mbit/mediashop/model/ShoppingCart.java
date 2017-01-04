@@ -3,7 +3,6 @@ package com.mbit.mediashop.model;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -30,44 +29,44 @@ public class ShoppingCart implements Serializable {
         totalPrice = new BigDecimal("0.00");
     }
 
-    public synchronized List<CartItem> getCartItems() {
+    public List<CartItem> getCartItems() {
         return cartItems;
     }
 
-    public synchronized void setCartItems(List<CartItem> cartItems) {
+    public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 
-    public synchronized int getTotalQuantity() {
+    public int getTotalQuantity() {
         return totalQuantity;
     }
 
-    public synchronized void setTotalQuantity(int totalQuantity) {
+    public void setTotalQuantity(int totalQuantity) {
         this.totalQuantity = totalQuantity;
     }
 
-    public synchronized BigDecimal getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public synchronized void setTotalPrice(BigDecimal totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public synchronized void addCartItem(CartItem cartItem) {
+    public void addCartItem(CartItem cartItem) {
         for (CartItem item : cartItems) {
             if (cartItem.getProduct().getProductId() == item.getProduct().getProductId()) {
                 item.increaseQuantity();
                 item.updateTotalPrice();
-                this.updateTotals();
+                updateTotals();
                 return;
             }
         }
         cartItems.add(cartItem);
-        this.updateTotals();
+        updateTotals();
     }
 
-    public synchronized void removeItemByProductId(int id) {
+    public void removeItemByProductId(int id) {
         Iterator<CartItem> iterator = cartItems.iterator();
         while (iterator.hasNext()) {
             if (iterator.next().getProduct().getProductId() == id) {
@@ -75,12 +74,12 @@ public class ShoppingCart implements Serializable {
                 break;
             }
         }
-        this.updateTotals();
+        updateTotals();
     }
 
-    public synchronized void clearItems() {
+    public void clearItems() {
         this.cartItems.clear();
-        this.updateTotals();
+        updateTotals();
     }
 
     private void updateTotals() {
