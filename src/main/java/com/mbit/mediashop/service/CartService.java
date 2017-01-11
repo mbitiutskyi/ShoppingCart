@@ -1,11 +1,8 @@
 package com.mbit.mediashop.service;
 
-import com.mbit.mediashop.model.CartItem;
 import com.mbit.mediashop.model.ShoppingCart;
 
-/**
- * Created by mbitiutskyi.
- */
+
 public interface CartService {
 
     ShoppingCart getShoppingCart();

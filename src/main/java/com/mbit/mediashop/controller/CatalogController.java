@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-/**
- * Created by mbitiutskyi.
- */
 
 @Controller
 public class CatalogController {

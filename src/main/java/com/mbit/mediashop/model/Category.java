@@ -1,17 +1,13 @@
 package com.mbit.mediashop.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by mbitiutskyi.
- */
+
 @Entity
 @Table(name = "category")
-public class Category implements Serializable {
+public class Category {
 
-    private static final long serialVersionUID = -2104458130690333763L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

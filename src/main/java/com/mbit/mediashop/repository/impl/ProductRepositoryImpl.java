@@ -1,10 +1,7 @@
 package com.mbit.mediashop.repository.impl;
 
 import com.mbit.mediashop.model.Product;
-import com.mbit.mediashop.repository.ProductDao;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mbit.mediashop.repository.ProductRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,13 +9,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-/**
- * Created by mbitiutskyi.
- */
 
 @Repository
 @Transactional
-public class ProductDaoImpl implements ProductDao {
+public class ProductRepositoryImpl implements ProductRepository {
 
     @PersistenceContext
     private EntityManager entityManager;

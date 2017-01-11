@@ -1,13 +1,10 @@
 package com.mbit.mediashop.repository;
 
 import com.mbit.mediashop.model.Product;
-
 import java.util.List;
 
-/**
- * Created by mbitiutskyi on 17.09.2016.
- */
-public interface ProductDao {
+
+public interface ProductRepository {
 
     List<Product> getProducts();
 

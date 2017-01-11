@@ -3,18 +3,12 @@ package com.mbit.mediashop.model;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 
-/**
- * Created by mbitiutskyi.
- */
 
 @Entity
 @Table(name = "product")
-public class Product implements Serializable{
-
-    private static final long serialVersionUID = 6196625833449010930L;
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
